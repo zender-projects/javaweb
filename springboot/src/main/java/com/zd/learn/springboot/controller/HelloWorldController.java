@@ -1,4 +1,4 @@
-package com.zd.learn.springboot;
+package com.zd.learn.springboot.controller;
 
 import com.zd.learn.springboot.model.MyInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,9 @@ public class HelloWorldController {
     private String bookAuthor;
     @Value("${book.name}")
     private String bookName;
+    @Value("${profile}")
+    private String profile;
+
     @Autowired
     private MyInfo myInfo;
 
@@ -32,5 +35,10 @@ public class HelloWorldController {
     @GetMapping("/myinfo")
     public String myInfo() {
         return myInfo.toString();
+    }
+
+    @GetMapping("/profile")
+    public String getProfile() {
+        return profile;
     }
 }
